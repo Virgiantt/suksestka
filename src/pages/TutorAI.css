@@ -1,0 +1,652 @@
+.tutorai-hero {
+  position: relative;
+  padding: 48px 16px 32px;
+  background: #fff;
+  overflow: visible;
+}
+.tutorai-hero__blob {
+  position: absolute;
+  border-radius: 9999px;
+  mix-blend-mode: multiply;
+  opacity: 0.2;
+  filter: blur(25px);
+  pointer-events: none;
+}
+.tutorai-hero__blob--yellow {
+  width: 288px;
+  height: 288px;
+  right: 6%;
+  bottom: 10%;
+  background: #ffe083;
+}
+.tutorai-hero__blob--green {
+  width: 384px;
+  height: 384px;
+  left: -5%;
+  bottom: -30%;
+  background: #6bff8f;
+}
+
+.tutorai-hero__card {
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  max-width: 998px;
+  margin: 0 auto;
+  padding: 56px 24px;
+  border-radius: 48px;
+  border: 1px solid #fff;
+  background: linear-gradient(135deg, #0a192f 0%, #112240 100%);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+.tutorai-hero__glow {
+  position: absolute;
+  width: 500px;
+  height: 488px;
+  right: -140px;
+  top: -60px;
+  border-radius: 9999px;
+  opacity: 0.3;
+  background: #dbe1ff;
+  mix-blend-mode: multiply;
+  filter: blur(25px);
+  pointer-events: none;
+}
+.tutorai-hero__badge {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 9999px;
+  border: 1px solid rgba(195, 198, 215, 0.3);
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  color: var(--color-navy);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.tutorai-hero__heading {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(32px, 6vw, 72px);
+  line-height: 1.05;
+  letter-spacing: -1.5px;
+  color: #fff;
+  max-width: 780px;
+}
+.tutorai-hero__heading-accent {
+  display: block;
+  background: linear-gradient(90deg, #2563eb 0%, #9333ea 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.tutorai-hero__subtitle {
+  position: relative;
+  z-index: 1;
+  max-width: 640px;
+  color: #c3c6d7;
+  font-size: clamp(15px, 2vw, 20px);
+  line-height: 1.4;
+}
+.tutorai-hero__actions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding-top: 4px;
+}
+.tutorai-btn {
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  justify-content: center;
+  gap: 10px;
+  padding: 16px 32px;
+  border-radius: 16px;
+  font-family: var(--font-heading);
+  font-weight: 400;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 220ms ease;
+}
+.tutorai-btn:hover {
+  transform: translateY(-3px);
+}
+.tutorai-btn--primary {
+  position: relative;
+  padding: 2px;
+  background: linear-gradient(90deg, #2563eb 0%, #a855f7 50%, #ec4899 100%);
+  opacity: 0.95;
+}
+.tutorai-btn--primary span {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 30px;
+  border-radius: 14px;
+  background: #fff;
+  color: var(--color-navy);
+}
+.tutorai-btn--outline {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(6px);
+}
+.tutorai-hero__trust {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px 32px;
+  padding-top: 24px;
+  margin-top: 8px;
+  width: 100%;
+  max-width: 620px;
+  border-top: 0;
+}
+.tutorai-hero__trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.tutorai-chat {
+  position: relative;
+  padding: 16px 16px 48px;
+  background: transparent;
+}
+.tutorai-chat__card {
+  position: relative;
+  max-width: 896px;
+  margin: 0 auto;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background: #fff;
+}
+.tutorai-chat__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 0;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+}
+.tutorai-chat__header-user {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.tutorai-chat__header-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  object-fit: cover;
+}
+.tutorai-chat__header-name {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--color-blue);
+}
+.tutorai-chat__header-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 2px 0 0;
+  color: var(--color-text-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.tutorai-chat__header-status span {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: var(--color-green);
+}
+.tutorai-chat__header-actions {
+  display: flex;
+  gap: 8px;
+}
+.tutorai-chat__header-actions button {
+  display: flex;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 9999px;
+  background: transparent;
+  opacity: 0.5;
+}
+
+.tutorai-chat__body {
+  position: relative;
+  min-height: 380px;
+  padding: 24px;
+  background-color: #fff;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.tutorai-chat__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(1px);
+}
+.tutorai-chat__messages {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 672px;
+  margin: 0 auto;
+}
+.tutorai-chat__message {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+}
+.tutorai-chat__message--user {
+  justify-content: flex-end;
+}
+.tutorai-chat__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 9999px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.tutorai-chat__user-avatar {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: var(--color-blue-light);
+  color: #eeefff;
+  font-weight: 700;
+  font-size: 16px;
+}
+.tutorai-chat__bubble {
+  max-width: 511px;
+  padding: 16px;
+  color: var(--color-navy);
+  font-size: 14px;
+  line-height: 1.4;
+}
+.tutorai-chat__bubble--user {
+  text-align: right;
+}
+
+.tutorai-chat__wall {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  padding: 90px 24px 32px;
+  background: linear-gradient(
+    0deg,
+    #fff 0%,
+    rgba(255, 255, 255, 0.9) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+.tutorai-chat__wall-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 448px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  border-radius: 16px;
+  border: 1px solid var(--color-blue-soft);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12px);
+  text-align: center;
+}
+.tutorai-chat__wall-icon {
+  display: flex;
+  width: 64px;
+  height: 64px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: var(--color-blue-light);
+}
+.tutorai-chat__wall-title {
+  margin: 8px 0 0;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--color-navy);
+}
+.tutorai-chat__wall-desc {
+  margin: 0;
+  color: var(--color-text-body);
+  font-size: 14px;
+  line-height: 1.4;
+}
+.tutorai-chat__wall-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding-top: 16px;
+}
+.tutorai-chat__wall-btn {
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  display: block;
+  text-decoration: none;
+  border-radius: 12px;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 200ms ease;
+}
+.tutorai-chat__wall-btn:hover {
+  transform: translateY(-2px);
+}
+.tutorai-chat__wall-btn--primary {
+  background: var(--color-blue);
+  color: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.tutorai-chat__wall-btn--text {
+  background: transparent;
+  color: var(--color-blue);
+}
+
+.tutorai-chat__footer {
+  padding: 16px;
+  border-top: 0;
+  background: #fff;
+}
+.tutorai-chat__input {
+  padding: 13px 56px 13px 20px;
+  border-radius: 9999px;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-soft);
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.tutorai-features {
+  padding: 64px 16px;
+  background: #fff;
+}
+.tutorai-features__head {
+  max-width: 672px;
+  margin: 0 auto 40px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.tutorai-features__title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(26px, 4vw, 36px);
+}
+.tutorai-features__title-blue {
+  color: var(--color-blue);
+}
+.tutorai-features__title-green {
+  color: var(--color-green);
+}
+.tutorai-features__subtitle {
+  margin: 0;
+  color: var(--color-text-body);
+  font-size: 16px;
+}
+.tutorai-features__grid {
+  max-width: 1232px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.tutorai-feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 32px;
+  border-radius: 12px;
+  border: 1px solid var(--color-blue-soft);
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.tutorai-feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 74, 198, 0.1);
+}
+.tutorai-feature-card__icon {
+  display: flex;
+  width: 64px;
+  height: 64px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  margin-bottom: 24px;
+}
+.tutorai-feature-card__title {
+  margin: 0 0 12px;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--color-navy);
+}
+.tutorai-feature-card__desc {
+  margin: 0;
+  color: var(--color-text-body);
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.tutorai-testimonials {
+  padding: 24px 16px 80px;
+  background: #fff;
+}
+.tutorai-testimonials__head {
+  max-width: 672px;
+  margin: 0 auto 32px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.tutorai-testimonials__title {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(26px, 4vw, 36px);
+  color: var(--color-blue);
+}
+.tutorai-testimonials__subtitle {
+  margin: 0;
+  color: var(--color-text-body);
+  font-size: 16px;
+}
+.tutorai-testimonials__swiper {
+  max-width: 1232px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.tutorai-testimonials__swiper .swiper-wrapper {
+  align-items: stretch;
+}
+.tutorai-testimonials__swiper .swiper-slide {
+  height: auto;
+}
+.tutorai-testimonial-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  border-radius: 12px;
+  border: 1px solid rgba(195, 198, 215, 0.2);
+  background: var(--color-bg-soft);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.tutorai-testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 74, 198, 0.08);
+}
+.tutorai-testimonial-card__stars {
+  display: flex;
+  gap: 4px;
+}
+.tutorai-testimonial-card__text {
+  margin: 0;
+  color: var(--color-navy);
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.4;
+}
+.tutorai-testimonial-card__author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 8px;
+}
+.tutorai-testimonial-card__avatar {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  font-weight: 700;
+  font-size: 16px;
+}
+.tutorai-testimonial-card__name {
+  margin: 0;
+  color: var(--color-navy);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+.tutorai-testimonial-card__role {
+  margin: 0;
+  color: var(--color-text-body);
+  font-size: 12px;
+}
+
+@media (min-width: 961px) {
+  .tutorai-hero {
+    min-height: 779px;
+    box-sizing: border-box;
+    padding-top: 53px;
+  }
+
+  .tutorai-chat {
+    padding: 0 16px 112px;
+  }
+
+  .tutorai-chat__body {
+    height: 434px;
+    min-height: 0;
+    box-sizing: border-box;
+  }
+
+  .tutorai-chat__footer {
+    height: 83px;
+    box-sizing: border-box;
+  }
+}
+
+@media (max-width: 960px) {
+  .tutorai-features__grid {
+    grid-template-columns: 1fr;
+  }
+  .tutorai-testimonials__swiper {
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 767px) {
+  .tutorai-hero {
+    min-height: 0;
+  }
+
+  .tutorai-chat {
+    padding-bottom: 48px;
+  }
+}
+
+@media (max-width: 767px) {
+  .tutorai-hero {
+    padding: 32px 12px 24px;
+  }
+  .tutorai-hero__card {
+    padding: 40px 20px;
+    border-radius: 32px;
+  }
+  .tutorai-hero__actions {
+    width: 100%;
+    flex-direction: column;
+  }
+  .tutorai-btn {
+    width: 100%;
+  }
+  .tutorai-hero__trust {
+    gap: 12px 20px;
+  }
+  .tutorai-chat__body {
+    padding: 16px;
+  }
+  .tutorai-chat__bubble {
+    max-width: 100%;
+  }
+  .tutorai-chat__wall {
+    padding: 60px 12px 24px;
+  }
+  .tutorai-features,
+  .tutorai-testimonials {
+    padding: 40px 12px;
+  }
+}

@@ -1,0 +1,344 @@
+.register {
+  display: flex;
+  min-height: 100vh;
+  background: #fff;
+}
+
+.register__media {
+  position: relative;
+  flex: 0 0 48%;
+  max-width: 48%;
+  overflow: hidden;
+}
+.register__media-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.register__panel {
+  position: relative;
+  flex: 1 1 52%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 24px;
+  overflow: hidden;
+}
+
+.register__blob {
+  position: absolute;
+  width: 640px;
+  height: 563px;
+  right: -18%;
+  top: 20%;
+  border-radius: 9999px;
+  background: rgba(211, 228, 254, 0.6);
+  mix-blend-mode: multiply;
+  filter: blur(32px);
+  pointer-events: none;
+}
+
+.register__deco {
+  position: absolute;
+  pointer-events: none;
+}
+.register__deco--star {
+  left: 32%;
+  top: 1%;
+}
+.register__deco--triangle {
+  right: 3%;
+  top: 5%;
+}
+.register__deco--sparkle {
+  left: 1%;
+  bottom: 24%;
+}
+.register__deco--arrow {
+  left: 18%;
+  bottom: -4%;
+}
+
+.register__card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 496px;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 20px 45px rgba(11, 28, 48, 0.12);
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.register__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.register__logo-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.register__logo-icon {
+  width: 40px;
+  height: 32px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.register__logo-text {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 36px;
+  letter-spacing: -0.6px;
+}
+.register__logo-text .text-blue {
+  color: var(--color-blue);
+}
+.register__logo-text .text-green {
+  color: var(--color-green-logo);
+}
+
+.register__subtitle {
+  color: var(--color-text-body);
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.register__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.register__role-section {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+.register__role-label {
+  color: var(--color-navy);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+}
+.register__role-grid {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.register__role-card {
+  flex: 1 1 180px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--font-body);
+  transition: border-color 200ms ease, background 200ms ease, transform 200ms ease;
+}
+.register__role-card:hover {
+  transform: translateY(-2px);
+}
+.register__role-card.is-active {
+  border-color: var(--color-blue);
+  background: var(--color-blue-soft);
+  box-shadow: 0 0 0 2px rgba(0, 74, 198, 0.15);
+}
+.register__role-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: 8px;
+  background: var(--color-blue-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.register__role-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.register__role-title {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--color-navy);
+}
+.register__role-desc {
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--color-text-body);
+}
+
+.register__divider {
+  height: 1px;
+  background: rgba(195, 198, 215, 0.3);
+}
+
+.register__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.register__field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.register__label {
+  color: var(--color-navy);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+  letter-spacing: 0.5px;
+}
+
+.register__input-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.register__input-icon {
+  position: absolute;
+  left: 12px;
+  pointer-events: none;
+}
+
+.register__input {
+  width: 100%;
+  height: 48px;
+  padding: 0 16px 0 40px;
+  border-radius: 8px;
+  border: 1px solid var(--color-border);
+  background: #fff;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-navy);
+}
+.register__input::placeholder {
+  color: #737686;
+}
+.register__input:focus {
+  outline: none;
+  border-color: var(--color-blue);
+  box-shadow: 0 0 0 3px rgba(0, 74, 198, 0.12);
+}
+.register__input--password {
+  padding-right: 44px;
+}
+
+.register__toggle-password {
+  position: absolute;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: var(--color-border);
+}
+
+.register__submit {
+  display: flex;
+  height: 48px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 8px;
+  background: var(--color-blue);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: transform 200ms ease, filter 200ms ease;
+}
+.register__submit:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.register__login-link {
+  text-align: center;
+  color: var(--color-text-body);
+  font-size: 14px;
+}
+.register__login-link a {
+  color: var(--color-blue);
+  text-decoration: none;
+  font-weight: 400;
+}
+.register__login-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 1024px) {
+  .register__deco--star,
+  .register__deco--triangle {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .register {
+    flex-direction: column;
+  }
+  .register__media {
+    flex: none;
+    max-width: 100%;
+    order: 1;
+    height: 260px;
+  }
+  .register__panel {
+    flex: none;
+    order: 2;
+    padding: 32px 16px 48px;
+  }
+  .register__deco {
+    display: none;
+  }
+  .register__blob {
+    width: 420px;
+    height: 380px;
+  }
+}
+
+@media (max-width: 480px) {
+  .register__card {
+    padding: 24px 20px;
+  }
+  .register__media {
+    height: 200px;
+  }
+  .register__logo-text {
+    font-size: 22px;
+  }
+  .register__role-grid {
+    flex-direction: column;
+  }
+}

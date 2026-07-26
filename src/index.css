@@ -1,0 +1,71 @@
+:root {
+  --color-blue: #004ac6;
+  --color-blue-light: #2563eb;
+  --color-blue-soft: #e5eeff;
+  --color-blue-soft-2: #dce9ff;
+  --color-blue-pale: #d3e4fe;
+  --color-purple: #8b5cf6;
+  --color-green: #006e2f;
+  --color-green-text: #007432;
+  --color-green-bright: #6bff8f;
+  --color-green-logo: #28b260;
+  --color-yellow: #fbbf24;
+  --color-yellow-deep: #facc15;
+  --color-yellow-text: #cea700;
+  --color-red: #ba1a1a;
+  --color-navy: #0b1c30;
+  --color-navy-2: #111c2d;
+  --color-slate: #213145;
+  --color-text-body: #434655;
+  --color-border: #c3c6d7;
+  --color-bg-soft: #f8f9ff;
+  --color-white: #fff;
+
+  --font-heading: "Plus Jakarta Sans", -apple-system, Roboto, Helvetica,
+    sans-serif;
+  --font-logo: "Poppins", -apple-system, Roboto, Helvetica, sans-serif;
+  --font-body: "Nunito Sans", -apple-system, Roboto, Helvetica, sans-serif;
+
+  font: 16px/150% var(--font-body);
+  color-scheme: light;
+  color: var(--color-text-body);
+  background: var(--color-white);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading);
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
