@@ -8,6 +8,8 @@ const heroImageSrc =
 
 const VALID_EMAIL = "siswa" + "@" + "gmail.com";
 const VALID_PASSWORD = "12345678";
+const TEACHER_EMAIL = "pengajar" + "@" + "gmail.com";
+const TEACHER_PASSWORD = "12345678";
 
 function Login() {
   const navigate = useNavigate();
@@ -18,7 +20,10 @@ function Login() {
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    if (email === VALID_EMAIL && password === VALID_PASSWORD) {
+    if (email === TEACHER_EMAIL && password === TEACHER_PASSWORD) {
+      setError("");
+      navigate("/dashboard-guru");
+    } else if (email === VALID_EMAIL && password === VALID_PASSWORD) {
       setError("");
       navigate("/dashboard");
     } else {

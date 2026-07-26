@@ -52,6 +52,29 @@
   padding: 0 24px 32px;
 }
 
+.teacher-dashboard .dashboard-sidebar {
+  background: #101c44;
+}
+
+.teacher-dashboard .dashboard-sidebar__link {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.teacher-dashboard .dashboard-sidebar__link-icon {
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.teacher-dashboard .dashboard-sidebar__link--active,
+.teacher-dashboard .dashboard-sidebar__link--active:hover {
+  background: #4648d4;
+  color: #fff;
+}
+
+.teacher-dashboard .dashboard-sidebar__link--active .dashboard-sidebar__link-icon,
+.teacher-dashboard .dashboard-sidebar__link:hover .dashboard-sidebar__link-icon {
+  color: #fff;
+}
+
 .dashboard-sidebar__logo {
   width: 48px;
   height: 38px;
@@ -305,6 +328,49 @@
 
 .dashboard-icon-btn__dot {
   animation: dashboard-pulse 2s ease-in-out infinite;
+}
+
+.teacher-topbar__profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 20px;
+  border-left: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.teacher-topbar__avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 9999px;
+  border: 2px solid #004ac6;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.teacher-topbar__name {
+  margin: 0;
+  color: #191c1e;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.14px;
+  line-height: 1.2;
+}
+
+.teacher-topbar__role {
+  margin: 0;
+  color: var(--dash-body-text);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.6px;
+  line-height: 1.2;
+}
+
+@media (max-width: 640px) {
+  .teacher-topbar__info {
+    display: none;
+  }
 }
 
 @keyframes dashboard-pulse {

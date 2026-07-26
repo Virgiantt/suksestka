@@ -14,6 +14,7 @@ import Jasa from "./pages/Jasa";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import DashboardGuru from "./pages/DashboardGuru";
 import Belajar from "./pages/Belajar";
 import Materi from "./pages/Materi";
 import LatihanSoal from "./pages/LatihanSoal";
@@ -1262,6 +1263,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/daftar" element={<Register />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/dashboard-guru" element={<DashboardGuru />} />
       <Route path="/belajar" element={<Belajar />} />
       <Route path="/belajar/materi" element={<Materi />} />
       <Route path="/latihan-soal" element={<LatihanSoal />} />
