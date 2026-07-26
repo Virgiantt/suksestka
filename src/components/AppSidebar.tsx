@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import "./AppShell.css";
 
 const logoImageSrc =
-  "https://api.builder.io/api/v1/image/assets/TEMP/33529b2cfb605fa064b3c15e4f1fc1d5bb92bf18?width=120";
+  "https://cdn.builder.io/api/v1/image/assets%2Fb52cb71ec6374715a04a0689eb72fbdc%2F850d192fca624eef823e8eafe0d7c4ec?format=webp&width=800&height=1200";
 const sidebarAvatarSrc =
   "https://api.builder.io/api/v1/image/assets/TEMP/7eb1a869ae7dc0f7b943df9d664aaa11cdb40049?width=80";
 
