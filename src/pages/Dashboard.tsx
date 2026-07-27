@@ -1,7 +1,7 @@
 import { useState } from "react";
 import AppSidebar from "../components/AppSidebar";
 import AppTopbar from "../components/AppTopbar";
-import "./Dashboard.css";
+import "../styles/siswa/Dashboard.css";
 
 const robotImageSrc =
   "https://api.builder.io/api/v1/image/assets/TEMP/6e94f1d3529463dcf9bc3bbeb1a713761c5e5f0a?width=534";

@@ -2,7 +2,7 @@ import { useState } from "react";
 import AppSidebar from "../components/AppSidebar";
 import AppTopbar from "../components/AppTopbar";
 import AppFooter from "../components/AppFooter";
-import "./Leaderboard.css";
+import "../styles/siswa/Leaderboard.css";
 
 const rank1Avatar =
   "https://api.builder.io/api/v1/image/assets/TEMP/d220ee104f35e55285c4228c70e7193702db4f7d?width=296";

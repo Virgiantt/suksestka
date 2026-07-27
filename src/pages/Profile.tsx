@@ -2,7 +2,7 @@ import { useState } from "react";
 import AppSidebar from "../components/AppSidebar";
 import AppTopbar from "../components/AppTopbar";
 import AppFooter from "../components/AppFooter";
-import "./Profile.css";
+import "../styles/siswa/Profile.css";
 
 const avatarSrc =
   "https://api.builder.io/api/v1/image/assets/TEMP/93896cd785e748b83909f3619bd7e007360e5ec7?width=360";

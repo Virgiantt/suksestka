@@ -2,7 +2,7 @@ import { useState, type ReactNode } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import "./Jasa.css";
+import "../styles/siswa/Jasa.css";
 
 function CheckIcon({ tone = "muted" }: { tone?: "muted" | "solid" | "accent" }) {
   if (tone === "solid") {

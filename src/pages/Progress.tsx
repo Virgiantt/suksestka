@@ -2,7 +2,7 @@ import { useState } from "react";
 import AppSidebar from "../components/AppSidebar";
 import AppTopbar from "../components/AppTopbar";
 import AppFooter from "../components/AppFooter";
-import "./Progress.css";
+import "../styles/siswa/Progress.css";
 
 const drSarahAvatar =
   "https://api.builder.io/api/v1/image/assets/TEMP/1a8dc260861821c0f2a41545423b77d57459a434?width=104";

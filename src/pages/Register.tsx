@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./Register.css";
+import "../styles/siswa/Register.css";
 
 const heroImageSrc =
   "https://api.builder.io/api/v1/image/assets/TEMP/6801a2aefb10406b820dd0a1f33d43dc46dcfd60?width=1382";

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import "./LatihanSesi.css";
+import "../styles/siswa/LatihanSesi.css";
 
 const logoImageSrc =
   "https://api.builder.io/api/v1/image/assets/TEMP/1f12ec19af04de3ffaf741c8c718b55f04c4a210?width=132";

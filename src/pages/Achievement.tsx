@@ -2,7 +2,7 @@ import { useState } from "react";
 import AppSidebar from "../components/AppSidebar";
 import AppTopbar from "../components/AppTopbar";
 import AppFooter from "../components/AppFooter";
-import "./Achievement.css";
+import "../styles/siswa/Achievement.css";
 
 const categories = ["Semua", "Akademik", "Sosial", "Spesial"];
 

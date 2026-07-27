@@ -1,4 +1,4 @@
-import "./AppShell.css";
+import "../styles/shared/AppShell.css";
 
 const teacherAvatarSrc =
   "https://api.builder.io/api/v1/image/assets/TEMP/2f65435dfa8ffc7d30d60e57d05f86a493ebf19a?width=88";

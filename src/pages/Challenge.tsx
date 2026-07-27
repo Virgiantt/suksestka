@@ -2,7 +2,7 @@ import { useState } from "react";
 import AppSidebar from "../components/AppSidebar";
 import AppTopbar from "../components/AppTopbar";
 import AppFooter from "../components/AppFooter";
-import "./Challenge.css";
+import "../styles/siswa/Challenge.css";
 
 
 function ClockIcon() {

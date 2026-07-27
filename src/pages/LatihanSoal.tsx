@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import AppSidebar from "../components/AppSidebar";
 import AppTopbar from "../components/AppTopbar";
 import AppFooter from "../components/AppFooter";
-import "./LatihanSoal.css";
+import "../styles/siswa/LatihanSoal.css";
 
 const heroIllustrationSrc =
   "https://api.builder.io/api/v1/image/assets/TEMP/f37a4551803b9e0d1d284d0f0a71bf0193e67a66?width=576";

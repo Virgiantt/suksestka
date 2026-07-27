@@ -1,4 +1,4 @@
-import "./TutorAI.css";
+import "../styles/siswa/TutorAI.css";
 
 import { Link } from "react-router-dom";
 import { Autoplay } from "swiper/modules";

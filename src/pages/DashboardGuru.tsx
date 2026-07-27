@@ -1,7 +1,7 @@
 import { useState } from "react";
-import TeacherSidebar from "../components/TeacherSidebar";
-import TeacherTopbar from "../components/TeacherTopbar";
-import "./DashboardGuru.css";
+import TeacherSidebar from "../components/pengajar/TeacherSidebar";
+import TeacherTopbar from "../components/pengajar/TeacherTopbar";
+import "../styles/pengajar/DashboardGuru.css";
 
 const mascotImageSrc =
   "https://api.builder.io/api/v1/image/assets/TEMP/65b69b71bbbb7448faaf9cf57df57b4b4ec6381f?width=800";
@@ -167,6 +167,12 @@ const schedule = [
 
 function DashboardGuru() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [completedTasks, setCompletedTasks] = useState<Record<string, boolean>>(() =>
+    Object.fromEntries(tasks.map((task) => [task.key, Boolean(task.done)])),
+  );
+  const toggleTask = (taskKey: string) => {
+    setCompletedTasks((current) => ({ ...current, [taskKey]: !current[taskKey] }));
+  };
 
   return (
     <div className="teacher-dashboard">
@@ -222,12 +228,6 @@ function DashboardGuru() {
                 buatan.
               </p>
               <div className="teacher-hero__actions">
-                <button type="button" className="teacher-btn teacher-btn--primary">
-                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M6 8H0V6H6V0H8V6H14V8H8V14H6V8Z" fill="white" />
-                  </svg>
-                  Tambah Materi
-                </button>
                 <button type="button" className="teacher-btn teacher-btn--yellow">
                   <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -236,15 +236,6 @@ function DashboardGuru() {
                     />
                   </svg>
                   Buat Soal
-                </button>
-                <button type="button" className="teacher-btn teacher-btn--outline">
-                  <svg width="16" height="20" viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path
-                      d="M7 17H9V12.825L10.6 14.425L12 13L8 9L4 13L5.425 14.4L7 12.825V17ZM2 20C1.45 20 0.979167 19.8042 0.5875 19.4125C0.195833 19.0208 0 18.55 0 18V2C0 1.45 0.195833 0.979167 0.5875 0.5875C0.979167 0.195833 1.45 0 2 0H10L16 6V18C16 18.55 15.8042 19.0208 15.4125 19.4125C15.0208 19.8042 14.55 20 14 20H2ZM9 7V2H2V18H14V7H9Z"
-                      fill="#004AC6"
-                    />
-                  </svg>
-                  Upload PDF
                 </button>
               </div>
             </div>
@@ -399,14 +390,14 @@ function DashboardGuru() {
                 </div>
                 <div className="task-list">
                   {tasks.map((task) => (
-                    <div className={`task-item${task.done ? " task-item--done" : ""}`} key={task.key}>
-                      <span className={`task-item__check${task.done ? " task-item__check--done" : ""}`}>
-                        {task.done ? (
-                          <svg width="13" height="10" viewBox="0 0 13 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4.275 9.01875L0 4.74375L1.06875 3.675L4.275 6.88125L11.1562 0L12.225 1.06875L4.275 9.01875Z" fill="white" />
-                          </svg>
-                        ) : null}
-                      </span>
+                    <div className={`task-item${completedTasks[task.key] ? " task-item--done" : ""}`} key={task.key}>
+                      <input
+                        type="checkbox"
+                        className="task-item__check"
+                        checked={Boolean(completedTasks[task.key])}
+                        onChange={() => toggleTask(task.key)}
+                        aria-label={`Tandai tugas ${task.title} sebagai selesai`}
+                      />
                       <div className="task-item__body">
                         <p className="task-item__title">{task.title}</p>
                         <p className="task-item__meta">{task.meta}</p>

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import AppSidebar from "../components/AppSidebar";
 import AppTopbar from "../components/AppTopbar";
 import AppFooter from "../components/AppFooter";
-import "./TryoutTKA.css";
+import "../styles/siswa/TryoutTKA.css";
 
 const heroIllustrationSrc =
   "https://api.builder.io/api/v1/image/assets/TEMP/284d9314d836432fc8f453ad88738a75f49c5c3b?width=725";

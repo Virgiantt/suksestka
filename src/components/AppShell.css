@@ -75,6 +75,60 @@
   color: #fff;
 }
 
+.teacher-dashboard .dashboard-sidebar {
+  width: 288px;
+  padding: 0 8px 32px;
+}
+
+.teacher-dashboard .dashboard-sidebar__brand {
+  gap: 12px;
+  padding: 0 24px 32px;
+}
+
+.teacher-dashboard .dashboard-sidebar__logo {
+  width: 60px;
+  height: 48px;
+}
+
+.teacher-dashboard .dashboard-sidebar__brand-title {
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.teacher-dashboard .dashboard-sidebar__brand-subtitle {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.teacher-dashboard .dashboard-sidebar__nav {
+  gap: 8px;
+  padding: 0 8px;
+}
+
+.teacher-dashboard .dashboard-sidebar__link {
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.teacher-dashboard .dashboard-sidebar__link-icon {
+  width: 18px;
+  height: 20px;
+  align-items: center;
+  justify-content: center;
+}
+
+.teacher-dashboard .dashboard-sidebar__link-icon svg {
+  max-width: 20px;
+  max-height: 20px;
+}
+
+.teacher-dashboard .dashboard-sidebar__user {
+  margin: 16px 12px 0;
+}
+
 .dashboard-sidebar__logo {
   width: 48px;
   height: 38px;
@@ -383,6 +437,10 @@
   }
 }
 
+.teacher-dashboard__main .app-footer {
+  margin: 0 32px 32px;
+}
+
 /* Footer */
 .app-footer {
   display: flex;
@@ -546,6 +604,45 @@
   50% {
     box-shadow: 0 0 0 6px rgba(70, 72, 212, 0);
   }
+}
+
+@keyframes teacher-sidebar-active-glow {
+  0%,
+  100% {
+    box-shadow: 0 10px 15px -3px rgba(70, 72, 212, 0.2), 0 4px 6px -4px rgba(70, 72, 212, 0.2);
+  }
+  50% {
+    box-shadow: 0 14px 24px -4px rgba(70, 72, 212, 0.42), 0 6px 10px -5px rgba(70, 72, 212, 0.3);
+  }
+}
+
+.teacher-dashboard .dashboard-sidebar__link {
+  transition: transform 220ms ease, box-shadow 220ms ease, background-color 220ms ease, color 220ms ease;
+}
+
+.teacher-dashboard .dashboard-sidebar__link:hover {
+  transform: translateX(5px);
+}
+
+.teacher-dashboard .dashboard-sidebar__link-icon {
+  transition: transform 220ms ease;
+}
+
+.teacher-dashboard .dashboard-sidebar__link:hover .dashboard-sidebar__link-icon {
+  transform: scale(1.12) rotate(-4deg);
+}
+
+.teacher-dashboard .dashboard-sidebar__link--active {
+  animation: teacher-sidebar-active-glow 3s ease-in-out infinite;
+}
+
+.teacher-dashboard .dashboard-sidebar__user {
+  transition: background-color 220ms ease, transform 220ms ease;
+}
+
+.teacher-dashboard .dashboard-sidebar__user:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.1);
 }
 
 .dashboard-sidebar__brand {

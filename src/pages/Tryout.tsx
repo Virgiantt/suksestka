@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import "./Tryout.css";
+import "../styles/siswa/Tryout.css";
 
 const heroImageSrc =
   "https://api.builder.io/api/v1/image/assets/TEMP/ee726484bb3e9158c11fe59be409d86a746e4e1b?width=1228";

@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import AppSidebar from "../components/AppSidebar";
 import AppTopbar from "../components/AppTopbar";
 import AppFooter from "../components/AppFooter";
-import "./AITutor.css";
+import "../styles/siswa/AITutor.css";
 
 const mascotImageSrc =
   "https://api.builder.io/api/v1/image/assets/TEMP/7e5b2ee50521cdff0d40a516fe6c0780a7ac0103?width=320";

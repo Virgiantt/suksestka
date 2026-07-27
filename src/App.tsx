@@ -1,4 +1,4 @@
-import "./App.css";
+import "./styles/shared/App.css";
 
 import { useEffect } from "react";
 import { Link, Routes, Route } from "react-router-dom";
@@ -7,26 +7,44 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import Fitur from "./pages/Fitur";
-import Tryout from "./pages/Tryout";
-import TutorAI from "./pages/TutorAI";
-import Jasa from "./pages/Jasa";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Dashboard from "./pages/Dashboard";
-import DashboardGuru from "./pages/DashboardGuru";
-import Belajar from "./pages/Belajar";
-import Materi from "./pages/Materi";
-import LatihanSoal from "./pages/LatihanSoal";
-import LatihanSesi from "./pages/LatihanSesi";
-import TryoutTKA from "./pages/TryoutTKA";
-import TryoutSesi from "./pages/TryoutSesi";
-import AITutor from "./pages/AITutor";
-import Leaderboard from "./pages/Leaderboard";
-import Achievement from "./pages/Achievement";
-import Progress from "./pages/Progress";
-import Challenge from "./pages/Challenge";
-import Profile from "./pages/Profile";
+import Fitur from "./pages/siswa/Fitur";
+import Tryout from "./pages/siswa/Tryout";
+import TutorAI from "./pages/siswa/TutorAI";
+import Jasa from "./pages/siswa/Jasa";
+import Login from "./pages/siswa/Login";
+import Register from "./pages/siswa/Register";
+import Dashboard from "./pages/siswa/Dashboard";
+import DashboardGuru from "./pages/pengajar/DashboardGuru";
+import MateriGuru from "./pages/pengajar/MateriGuru";
+import TambahMateri from "./pages/pengajar/TambahMateri";
+import DetailMateri from "./pages/pengajar/DetailMateri";
+import InsightMateri from "./pages/pengajar/InsightMateri";
+import BankSoal from "./pages/pengajar/BankSoal";
+import BuatSoalBaru from "./pages/pengajar/BuatSoalBaru";
+import ManajemenTryout from "./pages/pengajar/ManajemenTryout";
+import BuatTryoutBaru from "./pages/pengajar/BuatTryoutBaru";
+import DetailTryout from "./pages/pengajar/DetailTryout";
+import LaporanTryout from "./pages/pengajar/LaporanTryout";
+import EditTryout from "./pages/pengajar/EditTryout";
+import ManajemenSiswa from "./pages/pengajar/ManajemenSiswa";
+import TambahSiswa from "./pages/pengajar/TambahSiswa";
+import Analitik from "./pages/pengajar/Analitik";
+import ProfilGuru from "./pages/pengajar/ProfilGuru";
+import Pengumuman from "./pages/pengajar/Pengumuman";
+import BuatPengumuman from "./pages/pengajar/BuatPengumuman";
+import AIWorkspace from "./pages/pengajar/AIWorkspace";
+import Belajar from "./pages/siswa/Belajar";
+import Materi from "./pages/siswa/Materi";
+import LatihanSoal from "./pages/siswa/LatihanSoal";
+import LatihanSesi from "./pages/siswa/LatihanSesi";
+import TryoutTKA from "./pages/siswa/TryoutTKA";
+import TryoutSesi from "./pages/siswa/TryoutSesi";
+import AITutor from "./pages/siswa/AITutor";
+import Leaderboard from "./pages/siswa/Leaderboard";
+import Achievement from "./pages/siswa/Achievement";
+import Progress from "./pages/siswa/Progress";
+import Challenge from "./pages/siswa/Challenge";
+import Profile from "./pages/siswa/Profile";
 
 const heroImageSrc =
   "https://api.builder.io/api/v1/image/assets/TEMP/ae1af6ba1f37caad98c54a2ae7fbc88418225ce8?width=1184";
@@ -1264,6 +1282,24 @@ function App() {
       <Route path="/daftar" element={<Register />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/dashboard-guru" element={<DashboardGuru />} />
+      <Route path="/materi-guru" element={<MateriGuru />} />
+      <Route path="/materi-guru/tambah" element={<TambahMateri />} />
+      <Route path="/materi-guru/detail" element={<DetailMateri />} />
+      <Route path="/materi-guru/insight" element={<InsightMateri />} />
+      <Route path="/bank-soal" element={<BankSoal />} />
+      <Route path="/bank-soal/tambah" element={<BuatSoalBaru />} />
+      <Route path="/manajemen-tryout" element={<ManajemenTryout />} />
+      <Route path="/manajemen-tryout/buat" element={<BuatTryoutBaru />} />
+      <Route path="/manajemen-tryout/detail" element={<DetailTryout />} />
+      <Route path="/manajemen-tryout/laporan" element={<LaporanTryout />} />
+      <Route path="/manajemen-tryout/edit" element={<EditTryout />} />
+      <Route path="/manajemen-siswa" element={<ManajemenSiswa />} />
+      <Route path="/manajemen-siswa/tambah" element={<TambahSiswa />} />
+      <Route path="/analitik" element={<Analitik />} />
+      <Route path="/profil-guru" element={<ProfilGuru />} />
+      <Route path="/pengumuman" element={<Pengumuman />} />
+      <Route path="/pengumuman/buat" element={<BuatPengumuman />} />
+      <Route path="/ai-workspace" element={<AIWorkspace />} />
       <Route path="/belajar" element={<Belajar />} />
       <Route path="/belajar/materi" element={<Materi />} />
       <Route path="/latihan-soal" element={<LatihanSoal />} />

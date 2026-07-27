@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import AppSidebar from "../components/AppSidebar";
 import AppTopbar from "../components/AppTopbar";
 import AppFooter from "../components/AppFooter";
-import "./Materi.css";
+import "../styles/siswa/Materi.css";
 
 const videoThumbnailSrc =
   "https://api.builder.io/api/v1/image/assets/TEMP/a82207628c01b1cc347c13821898637a72aabd6a?width=1362";

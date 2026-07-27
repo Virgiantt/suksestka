@@ -1,7 +1,7 @@
 import { useState } from "react";
 import type { FormEvent } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import "./Login.css";
+import "../styles/siswa/Login.css";
 
 const heroImageSrc =
   "https://api.builder.io/api/v1/image/assets/TEMP/e5e73147ba6676142dc6baf9113ed37ddd66a4c4?width=1382";

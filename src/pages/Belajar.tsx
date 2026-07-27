@@ -4,7 +4,7 @@ import type { ReactNode } from "react";
 import AppSidebar from "../components/AppSidebar";
 import AppTopbar from "../components/AppTopbar";
 import AppFooter from "../components/AppFooter";
-import "./Belajar.css";
+import "../styles/siswa/Belajar.css";
 
 type Subject = {
   key: string;
