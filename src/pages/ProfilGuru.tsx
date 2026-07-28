@@ -26,6 +26,22 @@ const achievements = [
   },
 ];
 
+function AchievementIcon({ type }: { type: "top" | "ai" | "kemdikbud" | "inovator" }) {
+  return (
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
+      {type === "top" ? (
+        <path d="M11 2L13.1 7.1L18.5 7.55L14.4 11.1L15.65 16.4L11 13.55L6.35 16.4L7.6 11.1L3.5 7.55L8.9 7.1L11 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+      ) : type === "ai" ? (
+        <path d="M11 2L12.7 8.3L19 10L12.7 11.7L11 18L9.3 11.7L3 10L9.3 8.3L11 2ZM17.5 15L18 16.5L19.5 17L18 17.5L17.5 19L17 17.5L15.5 17L17 16.5L17.5 15Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+      ) : type === "kemdikbud" ? (
+        <path d="M4 3H18V19L11 15L4 19V3ZM7 7H15M7 10H15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      ) : (
+        <path d="M11 2L12.9 8.1L19 10L12.9 11.9L11 18L9.1 11.9L3 10L9.1 8.1L11 2Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
+      )}
+    </svg>
+  );
+}
+
 const activities = [
   {
     key: "kuis",
@@ -64,14 +80,28 @@ function ProfilGuru() {
           <section className="pg-cover">
             <div className="pg-cover__avatar-wrap">
               <img src={avatarSrc} alt="Bu Rina" className="pg-cover__avatar" />
-              <span className="pg-cover__status" />
+              <span className="pg-cover__status" aria-label="Sedang online">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M3 7.25L5.5 9.5L11 4.5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </span>
             </div>
             <div className="pg-cover__body">
               <div className="pg-cover__name-row">
                 <h1>Bu Rina, M.Pd.</h1>
-                <span className="pg-cover__badge">Spesialis Biologi &amp; Kimia</span>
+                <span className="pg-cover__badge">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                    <path d="M7 1.5L8.2 5.1L11.8 6.3L8.2 7.5L7 11.1L5.8 7.5L2.2 6.3L5.8 5.1L7 1.5Z" stroke="currentColor" strokeWidth="1.2" strokeLinejoin="round" />
+                  </svg>
+                  Spesialis Biologi &amp; Kimia
+                </span>
               </div>
-              <p className="pg-cover__sub">SD/SMP Prestasi Bangsa | Senior Educator</p>
+              <p className="pg-cover__sub">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                  <path d="M2 16.5H16M3.5 15V7.5H14.5V15M2.5 7.5L9 3L15.5 7.5M6 10H7.5M10.5 10H12M6 13H7.5M10.5 13H12" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+                SD/SMP Prestasi Bangsa | Senior Educator
+              </p>
             </div>
             <div className="pg-cover__actions">
               <button type="button" className="pg-btn pg-btn--primary">
@@ -105,7 +135,9 @@ function ProfilGuru() {
                 <div className="pg-achievements">
                   {achievements.map((item) => (
                     <div className={`pg-achievement pg-achievement--${item.tone}`} key={item.key}>
-                      <span className={`pg-achievement__icon pg-achievement__icon--${item.tone}`} />
+                      <span className={`pg-achievement__icon pg-achievement__icon--${item.tone}`}>
+                        <AchievementIcon type={item.key as "top" | "ai" | "kemdikbud" | "inovator"} />
+                      </span>
                       <div>
                         <p className="pg-achievement__title">{item.title}</p>
                         <p className="pg-achievement__desc">{item.desc}</p>

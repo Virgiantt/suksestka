@@ -395,11 +395,12 @@
 .teacher-topbar__avatar {
   width: 44px;
   height: 44px;
+  flex-shrink: 0;
   border-radius: 9999px;
   border: 2px solid #004ac6;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
   object-fit: cover;
-  flex-shrink: 0;
+  object-position: center 28%;
 }
 
 .teacher-topbar__name {
@@ -603,6 +604,78 @@
   }
   50% {
     box-shadow: 0 0 0 6px rgba(70, 72, 212, 0);
+  }
+}
+
+@media (max-width: 900px) {
+  .teacher-dashboard__main {
+    width: 100%;
+  }
+
+  .teacher-dashboard__main .app-footer {
+    margin: 0 16px 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-topbar {
+    gap: 8px;
+    padding: 10px 12px;
+  }
+
+  .dashboard-topbar__menu {
+    width: 32px;
+    height: 32px;
+  }
+
+  .dashboard-topbar__search {
+    min-width: 0;
+  }
+
+  .dashboard-topbar__search input {
+    padding: 8px 10px 8px 34px;
+    font-size: 13px;
+  }
+
+  .dashboard-topbar__search-icon {
+    left: 11px;
+  }
+
+  .dashboard-topbar__actions {
+    gap: 4px;
+  }
+
+  .dashboard-icon-btn {
+    width: 30px;
+    height: 30px;
+  }
+
+  .teacher-topbar__profile {
+    gap: 0;
+    padding-left: 8px;
+  }
+
+  .teacher-topbar__avatar {
+    width: 34px;
+    height: 34px;
+  }
+
+  .teacher-dashboard__main .app-footer {
+    align-items: flex-start;
+    gap: 12px;
+    margin: 0 12px 16px;
+    padding-top: 20px;
+  }
+
+  .app-footer__brand,
+  .app-footer__links {
+    flex-wrap: wrap;
+    gap: 8px 12px;
+  }
+
+  .app-footer__copy,
+  .app-footer__links a {
+    font-size: 11px;
   }
 }
 

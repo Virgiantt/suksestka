@@ -11,6 +11,20 @@ const aiSuggestions = [
   { key: "grammar", label: "Check Grammar & Tone", tone: "green" as const },
 ];
 
+function AssistantIcon({ type }: { type: "clarity" | "encourage" | "grammar" }) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      {type === "clarity" ? (
+        <path d="M3 3.5H15V12.5H7L4 15V12.5H3V3.5ZM6 7H12M6 9.5H10" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
+      ) : type === "encourage" ? (
+        <path d="M9 2L10.55 6.45L15 8L10.55 9.55L9 14L7.45 9.55L3 8L7.45 6.45L9 2ZM14.5 13L15 14.5L16.5 15L15 15.5L14.5 17L14 15.5L12.5 15L14 14.5L14.5 13Z" stroke="currentColor" strokeWidth="1.3" strokeLinejoin="round" />
+      ) : (
+        <path d="M3 4.5H15M3 8.5H11M3 12.5H8M13 10L14 12L16 12.5L14 13L13 15L12 13L10 12.5L12 12L13 10Z" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+      )}
+    </svg>
+  );
+}
+
 function BuatPengumuman() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
@@ -121,7 +135,11 @@ function BuatPengumuman() {
             <aside className="bp-aside">
               <section className="bp-ai">
                 <div className="bp-ai__head">
-                  <span className="bp-ai__avatar" />
+                  <span className="bp-ai__avatar">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M12 2L13.8 8.2L20 10L13.8 11.8L12 18L10.2 11.8L4 10L10.2 8.2L12 2ZM19 16L19.7 18.3L22 19L19.7 19.7L19 22L18.3 19.7L16 19L18.3 18.3L19 16Z" fill="white" />
+                    </svg>
+                  </span>
                   <div>
                     <p className="bp-ai__name">EduAI Assistant</p>
                     <p className="bp-ai__sub">Siap membantu menulis</p>
@@ -133,7 +151,9 @@ function BuatPengumuman() {
                 <div className="bp-ai__list">
                   {aiSuggestions.map((s) => (
                     <button type="button" className="bp-ai__btn" key={s.key}>
-                      <span className={`bp-ai__btn-icon bp-ai__btn-icon--${s.tone}`} />
+                      <span className={`bp-ai__btn-icon bp-ai__btn-icon--${s.tone}`}>
+                        <AssistantIcon type={s.key as "clarity" | "encourage" | "grammar"} />
+                      </span>
                       {s.label}
                     </button>
                   ))}

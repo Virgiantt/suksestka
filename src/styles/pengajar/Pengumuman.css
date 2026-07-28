@@ -109,6 +109,9 @@
 }
 
 .pg2-featured__media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: linear-gradient(135deg, #2563eb 0%, #8343f4 60%, #22c55e 100%);
 }
 
@@ -225,10 +228,12 @@
 }
 
 .pg2-item__icon {
-  display: block;
+  display: flex;
   width: 48px;
   height: 48px;
   flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
   border-radius: 9999px;
 }
 
@@ -429,12 +434,15 @@
 }
 
 .pg2-tip__icon {
-  display: block;
+  display: flex;
   width: 32px;
   height: 32px;
   flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
   border-radius: 9999px;
   background: rgba(0, 74, 198, 0.05);
+  color: var(--td-blue);
 }
 
 .pg2-tip p {

@@ -40,10 +40,58 @@ const students: Student[] = [
 ];
 
 const metrics = [
-  { key: "total", label: "TOTAL SISWA", value: "1,240", badge: "+12%", tone: "blue" as const, badgeTone: "green" as const },
-  { key: "aktif", label: "SISWA AKTIF HARI INI", value: "850", badge: "+5%", tone: "green" as const, badgeTone: "green" as const },
-  { key: "skor", label: "RATA-RATA SKOR PROGRES", value: "78%", badge: "0%", tone: "purple" as const, badgeTone: "gray" as const },
-  { key: "perhatian", label: "BUTUH PERHATIAN", value: "12", badge: "3", tone: "red" as const, badgeTone: "red" as const },
+  {
+    key: "total",
+    label: "TOTAL SISWA",
+    value: "1,240",
+    badge: "+12%",
+    tone: "blue" as const,
+    badgeTone: "green" as const,
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M0 20V16.5C0 15.7917 0.182292 15.1406 0.546875 14.5469C0.911458 13.9531 1.39583 13.5 2 13.1875C3.29167 12.5417 4.60417 12.0573 5.9375 11.7344C7.27083 11.4115 8.625 11.25 10 11.25C11.375 11.25 12.7292 11.4115 14.0625 11.7344C15.3958 12.0573 16.7083 12.5417 18 13.1875C18.6042 13.5 19.0885 13.9531 19.4531 14.5469C19.8177 15.1406 20 15.7917 20 16.5V20H0ZM10 10C8.625 10 7.44792 9.51042 6.46875 8.53125C5.48958 7.55208 5 6.375 5 5C5 3.625 5.48958 2.44792 6.46875 1.46875C7.44792 0.489583 8.625 0 10 0C11.375 0 12.5521 0.489583 13.5312 1.46875C14.5104 2.44792 15 3.625 15 5C15 6.375 14.5104 7.55208 13.5312 8.53125C12.5521 9.51042 11.375 10 10 10Z" fill="currentColor" />
+      </svg>
+    ),
+  },
+  {
+    key: "aktif",
+    label: "SISWA AKTIF HARI INI",
+    value: "850",
+    badge: "+5%",
+    tone: "green" as const,
+    badgeTone: "green" as const,
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M10 0C4.47715 0 0 4.47715 0 10C0 15.5228 4.47715 20 10 20C15.5228 20 20 15.5228 20 10C20 4.47715 15.5228 0 10 0ZM8.57143 14.2857L4.28571 10L5.79857 8.48714L8.57143 11.2486L14.2014 5.61857L15.7143 7.14286L8.57143 14.2857Z" fill="currentColor" />
+      </svg>
+    ),
+  },
+  {
+    key: "skor",
+    label: "RATA-RATA SKOR PROGRES",
+    value: "78%",
+    badge: "0%",
+    tone: "purple" as const,
+    badgeTone: "gray" as const,
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M2 18V10H5V18H2ZM8.5 18V2H11.5V18H8.5ZM15 18V6H18V18H15Z" fill="currentColor" />
+      </svg>
+    ),
+  },
+  {
+    key: "perhatian",
+    label: "BUTUH PERHATIAN",
+    value: "12",
+    badge: "3",
+    tone: "red" as const,
+    badgeTone: "red" as const,
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+        <path d="M10 0L20 18H0L10 0ZM10 5.5C9.45 5.5 9 5.95 9 6.5V11.5C9 12.05 9.45 12.5 10 12.5C10.55 12.5 11 12.05 11 11.5V6.5C11 5.95 10.55 5.5 10 5.5ZM10 15.5C10.6904 15.5 11.25 14.9404 11.25 14.25C11.25 13.5596 10.6904 13 10 13C9.30964 13 8.75 13.5596 8.75 14.25C8.75 14.9404 9.30964 15.5 10 15.5Z" fill="currentColor" />
+      </svg>
+    ),
+  },
 ];
 
 const groups = [
@@ -94,7 +142,7 @@ function ManajemenSiswa() {
             {metrics.map((metric) => (
               <article className={`ms-metric ms-metric--${metric.tone}`} key={metric.key}>
                 <div className="ms-metric__top">
-                  <span className={`ms-metric__icon ms-metric__icon--${metric.tone}`} />
+                  <span className={`ms-metric__icon ms-metric__icon--${metric.tone}`}>{metric.icon}</span>
                   <span className={`ms-metric__badge ms-metric__badge--${metric.badgeTone}`}>{metric.badge}</span>
                 </div>
                 <p className="ms-metric__label">{metric.label}</p>

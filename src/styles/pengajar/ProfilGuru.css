@@ -24,22 +24,26 @@
 }
 
 .pg-cover__avatar {
-  width: 140px;
-  height: 140px;
+  width: 168px;
+  height: 168px;
   border-radius: 9999px;
   border: 4px solid #fff;
   object-fit: cover;
+  object-position: center 28%;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 .pg-cover__status {
   position: absolute;
-  right: 6px;
-  bottom: 6px;
-  width: 22px;
-  height: 22px;
+  right: 4px;
+  bottom: 4px;
+  display: flex;
+  width: 28px;
+  height: 28px;
+  align-items: center;
+  justify-content: center;
   border-radius: 9999px;
-  border: 2px solid #fff;
+  border: 3px solid #fff;
   background: var(--td-green);
 }
 
@@ -60,11 +64,14 @@
   margin: 0;
   color: var(--td-navy);
   font-family: var(--font-heading);
-  font-size: clamp(28px, 4vw, 40px);
+  font-size: clamp(32px, 4vw, 56px);
   font-weight: 800;
 }
 
 .pg-cover__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   padding: 6px 14px;
   border-radius: 9999px;
   background: rgba(131, 67, 244, 0.1);
@@ -75,6 +82,9 @@
 }
 
 .pg-cover__sub {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin: 0;
   font-size: 16px;
 }
@@ -248,10 +258,12 @@
 }
 
 .pg-achievement__icon {
-  display: block;
+  display: flex;
   width: 44px;
   height: 44px;
   flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
   border-radius: 9999px;
 }
 

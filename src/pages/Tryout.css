@@ -95,7 +95,8 @@
   position: relative;
   z-index: 1;
   flex: 1 1 480px;
-  min-height: 432px;
+  aspect-ratio: 103 / 69;
+  min-height: 0;
   border-radius: 24px;
   border: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -886,7 +887,12 @@
   }
   .tryout-hero__media {
     width: 100%;
-    min-height: 220px;
+    aspect-ratio: 103 / 69;
+    min-height: 0;
+  }
+  .tryout-hero__media img {
+    animation: none;
+    transform: none;
   }
   .tryout-stats {
     margin-top: -56px;

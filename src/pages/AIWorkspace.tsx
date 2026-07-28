@@ -40,7 +40,21 @@ function AIWorkspace() {
                 <div className="aw-tools__grid">
                   {tools.map((tool) => (
                     <article className="aw-tool" key={tool.key}>
-                      <span className={`aw-tool__icon aw-tool__icon--${tool.tone}`} />
+                      <span className={`aw-tool__icon aw-tool__icon--${tool.tone}`} aria-hidden="true">
+                        {tool.key === "soal" ? (
+                          <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6 3h9l3 3v15H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm8 1.5V7h2.5M8 11h8M8 15h8M8 19h5" />
+                          </svg>
+                        ) : tool.key === "rangkuman" ? (
+                          <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5v-16ZM4 5.5v16M8 7h8M8 11h8M8 15h5" />
+                          </svg>
+                        ) : (
+                          <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M5 3h10l4 4v14H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm9 1v4h4M7 12h10M7 16h7M8 8h1" />
+                          </svg>
+                        )}
+                      </span>
                       <h3>{tool.title}</h3>
                       <p>{tool.desc}</p>
                       <span className="aw-tool__arrow">›</span>
@@ -50,7 +64,11 @@ function AIWorkspace() {
               </section>
 
               <section className="aw-upload">
-                <span className="aw-upload__icon" />
+                <span className="aw-upload__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 16V4M7 9l5-5 5 5M5 20h14" />
+                  </svg>
+                </span>
                 <div className="aw-upload__body">
                   <h3>Upload Referensi Konteks</h3>
                   <p>Tambahkan PDF, Word, atau PPT kurikulum agar AI memberikan hasil yang presisi dan relevan.</p>
@@ -101,7 +119,11 @@ function AIWorkspace() {
               <section className="aw-tasks">
                 <h3>Tasks Berjalan</h3>
                 <div className="aw-task">
-                  <span className="aw-task__icon" />
+                  <span className="aw-task__icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M18.4 5.6l-2.8 2.8M8.4 15.6l-2.8 2.8" />
+                    </svg>
+                  </span>
                   <div className="aw-task__body">
                     <div className="aw-task__top">
                       <span>Generating 50 Math Questions</span>

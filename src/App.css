@@ -422,6 +422,11 @@ main .final-cta {
   display: flex;
   align-items: center;
   gap: 16px;
+  min-width: 0;
+}
+
+.stat-card__row > div {
+  min-width: 0;
 }
 .stat-card__icon {
   display: flex;
@@ -448,6 +453,8 @@ main .final-cta {
   font-weight: 900;
   font-size: 36px;
   letter-spacing: -0.9px;
+  line-height: 1.1;
+  white-space: nowrap;
   margin: 0;
 }
 .stat-card--blue .stat-card__value {
@@ -2630,6 +2637,134 @@ main .final-cta {
   }
   .footer__list {
     gap: 8px;
+  }
+}
+
+@media (max-width: 400px) {
+  .navbar__inner {
+    gap: 8px;
+    padding: 12px;
+  }
+
+  .logo {
+    gap: 4px;
+    font-size: 16px;
+  }
+
+  .logo__icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  .navbar__actions {
+    gap: 4px;
+  }
+
+  .btn--text,
+  .btn--primary {
+    padding: 7px 9px;
+    font-size: 11px;
+  }
+
+  .navbar__menu-toggle {
+    width: 34px;
+    height: 34px;
+  }
+
+  .hero {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .hero__actions .btn {
+    min-height: 44px;
+  }
+
+  .stats__grid,
+  .badges-grid {
+    gap: 8px;
+  }
+
+  .stat-card {
+    padding: 14px 10px;
+  }
+
+  .stat-card__row {
+    gap: 8px;
+  }
+
+  .stat-card__icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 9px;
+  }
+
+  .stat-card__icon svg {
+    width: 20px;
+    height: auto;
+    max-width: 20px;
+  }
+
+  .stat-card__value {
+    font-size: 20px;
+  }
+
+  .stat-card__label {
+    font-size: 8px;
+    line-height: 1.15;
+    letter-spacing: 0.3px;
+  }
+
+  .features,
+  .journey,
+  .gamification,
+  .ai-tutor,
+  .testimonials,
+  .final-cta {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .final-cta__box {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .stats {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .stats__grid {
+    gap: 8px;
+  }
+
+  .stat-card {
+    padding: 12px 8px;
+  }
+
+  .stat-card__row {
+    gap: 6px;
+  }
+
+  .stat-card__icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .stat-card__icon svg {
+    width: 18px;
+    max-width: 18px;
+  }
+
+  .stat-card__value {
+    font-size: 18px;
+  }
+
+  .stat-card__label {
+    font-size: 7px;
   }
 }
 

@@ -195,6 +195,12 @@
   border-radius: 12px;
 }
 
+.materi-stat__icon > svg {
+  width: 24px;
+  height: auto;
+  max-height: 30px;
+}
+
 .materi-stat--blue .materi-stat__icon {
   background: rgba(0, 74, 198, 0.1);
 }

@@ -98,9 +98,11 @@
 }
 
 .ms-metric__icon {
-  display: block;
+  display: flex;
   width: 40px;
   height: 40px;
+  align-items: center;
+  justify-content: center;
   border-radius: 8px;
 }
 
@@ -578,8 +580,127 @@
     grid-template-columns: 1fr;
   }
 
+  .ms-directory {
+    padding: 16px;
+  }
+
+  .ms-directory__head {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ms-directory__tools {
+    width: 100%;
+  }
+
   .ms-directory__tools input {
     min-width: 0;
+    width: 100%;
     flex: 1;
+  }
+
+  .ms-table-wrap {
+    overflow: visible;
+  }
+
+  .ms-table {
+    display: block;
+    min-width: 0;
+  }
+
+  .ms-table thead {
+    display: none;
+  }
+
+  .ms-table tbody,
+  .ms-table tr,
+  .ms-table td {
+    display: block;
+  }
+
+  .ms-table tr {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(195, 198, 215, 0.2);
+  }
+
+  .ms-table tr:first-child {
+    padding-top: 0;
+  }
+
+  .ms-table tr:last-child {
+    border-bottom: 0;
+  }
+
+  .ms-table td {
+    display: flex;
+    min-width: 0;
+    padding: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    border-bottom: 0;
+  }
+
+  .ms-table td::before {
+    color: var(--td-body);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  .ms-table td:nth-child(1) {
+    grid-column: 1 / -1;
+  }
+
+  .ms-table td:nth-child(1)::before {
+    content: "Siswa";
+  }
+
+  .ms-table td:nth-child(2)::before {
+    content: "Tingkat";
+  }
+
+  .ms-table td:nth-child(3)::before {
+    content: "Rata-rata";
+  }
+
+  .ms-table td:nth-child(4)::before {
+    content: "Penyelesaian";
+  }
+
+  .ms-table td:nth-child(5)::before {
+    content: "Status";
+  }
+
+  .ms-student {
+    width: 100%;
+  }
+
+  .ms-student > div {
+    min-width: 0;
+  }
+
+  .ms-student__name,
+  .ms-student__id,
+  .ms-student__warning {
+    overflow-wrap: anywhere;
+  }
+
+  .ms-progress {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .ms-pagination {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .ms-pagination__buttons {
+    justify-content: flex-end;
   }
 }

@@ -11,6 +11,35 @@ const summaryCards = [
   { key: "partisipasi", label: "Partisipasi Tryout", value: "91%", badge: "Peak", tone: "purple" as const },
 ];
 
+function SummaryIcon({ type }: { type: string }) {
+  const paths = {
+    skor: "M2 18V10H5V18H2ZM8.5 18V2H11.5V18H8.5ZM15 18V6H18V18H15Z",
+    ketuntasan: "M10 0C4.477 0 0 4.477 0 10C0 15.523 4.477 20 10 20C15.523 20 20 15.523 20 10C20 4.477 15.523 0 10 0ZM8.571 14.286L4.286 10L5.799 8.487L8.571 11.249L14.201 5.619L15.714 7.143L8.571 14.286Z",
+    jam: "M10 0C4.477 0 0 4.477 0 10C0 15.523 4.477 20 10 20C15.523 20 20 15.523 20 10C20 4.477 15.523 0 10 0ZM11 5H9V11L14 14L15 12.5L11 10.1V5Z",
+    partisipasi: "M10 0L12.472 7.528L20 10L12.472 12.472L10 20L7.528 12.472L0 10L7.528 7.528L10 0Z",
+  };
+
+  return (
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+      <path d={paths[type as keyof typeof paths]} fill="currentColor" />
+    </svg>
+  );
+}
+
+function SubjectIcon({ subject }: { subject: string }) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      {subject === "matematika" ? (
+        <path d="M3 2H15V16H3V2ZM6 5H12M6 8H12M6 11H9M10 11H12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      ) : subject === "ipa" ? (
+        <path d="M7 2H11M8 2V7L4 14C3.3 15.2 4.16 16.5 5.55 16.5H12.45C13.84 16.5 14.7 15.2 14 14L10 7V2M5.5 12H12.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+      ) : (
+        <path d="M3 3.5H15V14.5H3V3.5ZM6 7H12M6 10H10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      )}
+    </svg>
+  );
+}
+
 const distribution = [
   { key: "exceeding", label: "Exceeding (85-100)", pct: 32, tone: "green" as const },
   { key: "meeting", label: "Meeting (70-84)", pct: 54, tone: "blue" as const },
@@ -53,7 +82,9 @@ function Analitik() {
             {summaryCards.map((card) => (
               <article className={`an-card an-card--${card.tone}`} key={card.key}>
                 <div className="an-card__top">
-                  <span className={`an-card__icon an-card__icon--${card.tone}`} />
+                  <span className={`an-card__icon an-card__icon--${card.tone}`}>
+                    <SummaryIcon type={card.key} />
+                  </span>
                   <span className={`an-card__badge an-card__badge--${card.tone}`}>{card.badge}</span>
                 </div>
                 <p className="an-card__label">{card.label}</p>
@@ -166,7 +197,9 @@ function Analitik() {
                     <tr key={subject.key}>
                       <td>
                         <div className="an-subject">
-                          <span className="an-subject__icon" />
+                          <span className="an-subject__icon">
+                            <SubjectIcon subject={subject.key} />
+                          </span>
                           {subject.name}
                         </div>
                       </td>
