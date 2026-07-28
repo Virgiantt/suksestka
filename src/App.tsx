@@ -45,6 +45,16 @@ import Achievement from "./pages/siswa/Achievement";
 import Progress from "./pages/siswa/Progress";
 import Challenge from "./pages/siswa/Challenge";
 import Profile from "./pages/siswa/Profile";
+import DashboardAdmin from "./pages/admin/DashboardAdmin";
+import ManajemenPengajarAdmin from "./pages/admin/ManajemenPengajarAdmin";
+import ManajemenSiswaAdmin from "./pages/admin/ManajemenSiswaAdmin";
+import AnalitikPlatformAdmin from "./pages/admin/AnalitikPlatformAdmin";
+import RegistrasiSiswaAdmin from "./pages/admin/RegistrasiSiswaAdmin";
+import LanggananPembayaranAdmin from "./pages/admin/LanggananPembayaranAdmin";
+import ManajemenPengumumanAdmin from "./pages/admin/ManajemenPengumumanAdmin";
+import BuatPengumumanAdmin from "./pages/admin/BuatPengumumanAdmin";
+import PengaturanSistemAdmin from "./pages/admin/PengaturanSistemAdmin";
+import LaporanPlatformAdmin from "./pages/admin/LaporanPlatformAdmin";
 
 const heroImageSrc =
   "https://api.builder.io/api/v1/image/assets/TEMP/ae1af6ba1f37caad98c54a2ae7fbc88418225ce8?width=1184";
@@ -1312,6 +1322,16 @@ function App() {
       <Route path="/progress" element={<Progress />} />
       <Route path="/challenge" element={<Challenge />} />
       <Route path="/profil" element={<Profile />} />
+      <Route path="/dashboard-admin" element={<DashboardAdmin />} />
+      <Route path="/admin/pengajar" element={<ManajemenPengajarAdmin />} />
+      <Route path="/admin/siswa" element={<ManajemenSiswaAdmin />} />
+      <Route path="/admin/siswa/tambah" element={<RegistrasiSiswaAdmin />} />
+      <Route path="/admin/analitik" element={<AnalitikPlatformAdmin />} />
+      <Route path="/admin/langganan" element={<LanggananPembayaranAdmin />} />
+      <Route path="/admin/pengumuman" element={<ManajemenPengumumanAdmin />} />
+      <Route path="/admin/pengumuman/buat" element={<BuatPengumumanAdmin />} />
+      <Route path="/admin/pengaturan" element={<PengaturanSistemAdmin />} />
+      <Route path="/admin/laporan" element={<LaporanPlatformAdmin />} />
     </Routes>
   );
 }
