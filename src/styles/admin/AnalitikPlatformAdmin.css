@@ -1,5 +1,8 @@
 .al-content {
+  width: 100%;
+  min-width: 0;
   gap: 24px;
+  overflow-x: hidden;
 }
 
 .al-header {
@@ -201,6 +204,11 @@
   align-items: start;
 }
 
+.al-bento > *,
+.al-kpi {
+  min-width: 0;
+}
+
 .al-card {
   padding: 24px;
   border-radius: 12px;
@@ -357,7 +365,9 @@
 }
 
 .al-table-wrap {
+  max-width: 100%;
   overflow-x: auto;
+  overscroll-behavior-x: contain;
 }
 
 .al-table {
@@ -437,15 +447,18 @@
 }
 
 .al-event {
+  min-width: 0;
   display: flex;
   gap: 12px;
 }
 
 .al-event p {
+  min-width: 0;
   margin: 0 0 2px;
   color: var(--ad-navy-text);
   font-size: 14px;
   font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 .al-event__time {
@@ -501,9 +514,21 @@
 }
 
 @media (max-width: 640px) {
+  .al-header {
+    align-items: flex-start;
+  }
+
+  .al-header h1 {
+    font-size: 24px;
+    line-height: 1.25;
+  }
+
   .al-kpis { grid-template-columns: 1fr; gap: 12px; }
 
-  .al-header p { font-size: 14px; }
+  .al-header p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
 
   .al-header__actions {
     width: 100%;
@@ -538,6 +563,76 @@
     flex-wrap: wrap;
     gap: 8px 12px;
   }
+
+  .al-card__head {
+    align-items: flex-start;
+  }
+
+  .al-card__head h2 {
+    font-size: 16px;
+  }
+
+  .al-table-wrap {
+    overflow-x: hidden;
+  }
+
+  .al-table {
+    min-width: 0;
+    table-layout: fixed;
+  }
+
+  .al-table th,
+  .al-table td {
+    padding: 12px 10px;
+  }
+
+  .al-table th:nth-child(1),
+  .al-table td:nth-child(1) {
+    width: 46%;
+  }
+
+  .al-table th:nth-child(2),
+  .al-table td:nth-child(2) {
+    width: 22%;
+  }
+
+  .al-table th:nth-child(3),
+  .al-table td:nth-child(3) {
+    width: 32%;
+  }
+
+  .al-table th:nth-child(4),
+  .al-table td:nth-child(4) {
+    display: none;
+  }
+
+  .al-table td:first-child {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .al-completion {
+    min-width: 0;
+    gap: 4px;
+  }
+
+  .al-completion .al-track {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .al-events {
+    gap: 14px;
+  }
+
+  .al-event p {
+    font-size: 12px;
+  }
+
+  .al-event__time {
+    font-size: 10px;
+  }
 }
 
 @media (max-width: 380px) {
@@ -547,5 +642,18 @@
 
   .al-btn {
     width: 100%;
+  }
+
+  .al-table th,
+  .al-table td {
+    padding: 10px 8px;
+  }
+
+  .al-completion .al-track {
+    display: none;
+  }
+
+  .al-chart {
+    height: 160px;
   }
 }

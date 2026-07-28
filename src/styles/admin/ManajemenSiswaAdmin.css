@@ -1,8 +1,11 @@
 @import url("./AdminShell.css");
 
 .as-content {
+  width: 100%;
+  min-width: 0;
   gap: 24px;
   max-width: 1600px;
+  overflow-x: hidden;
 }
 
 .as-header {
@@ -168,6 +171,7 @@
 
 .as-main,
 .as-side {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -230,7 +234,9 @@
 }
 
 .as-table-wrap {
+  max-width: 100%;
   overflow-x: auto;
+  overscroll-behavior-x: contain;
 }
 
 .as-table {
@@ -656,6 +662,20 @@
 }
 
 @media (max-width: 640px) {
+  .as-header {
+    width: 100%;
+  }
+
+  .as-header__actions {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .as-header__actions .as-btn {
+    width: 100%;
+  }
+
   .as-kpis {
     grid-template-columns: 1fr;
     gap: 12px;
@@ -689,6 +709,15 @@
   }
 
   .as-filters__chips {
+    width: 100%;
+  }
+
+  .as-filters > .as-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .as-filters__chips {
     flex-wrap: nowrap;
     overflow-x: auto;
     padding-bottom: 2px;
@@ -702,10 +731,124 @@
   .as-table-card {
     border-radius: 10px;
   }
+
+  .as-table {
+    min-width: 0;
+    table-layout: fixed;
+  }
+
+  .as-table th,
+  .as-table td {
+    padding: 12px 8px;
+    overflow: hidden;
+  }
+
+  .as-table th {
+    font-size: 10px;
+    line-height: 1.25;
+  }
+
+  .as-table th:nth-child(1),
+  .as-table td:nth-child(1) {
+    width: 42%;
+  }
+
+  .as-table th:nth-child(2),
+  .as-table td:nth-child(2) {
+    width: 17%;
+  }
+
+  .as-table th:nth-child(3),
+  .as-table td:nth-child(3) {
+    width: 25%;
+  }
+
+  .as-table th:nth-child(4),
+  .as-table td:nth-child(4) {
+    width: 16%;
+  }
+
+  .as-table th:last-child,
+  .as-table td:last-child {
+    display: none;
+  }
+
+  .as-student {
+    gap: 6px;
+  }
+
+  .as-student__avatar {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+
+  .as-student__name {
+    font-size: 12px;
+    line-height: 1.2;
+  }
+
+  .as-student__meta,
+  .as-activity__desc {
+    font-size: 9px;
+    line-height: 1.35;
+  }
+
+  .as-activity {
+    font-size: 10px;
+    line-height: 1.3;
+  }
+
+  .as-plan {
+    max-width: 100%;
+    padding: 3px 5px;
+    font-size: 9px;
+    white-space: normal;
+    text-align: center;
+  }
+
+  .as-progress {
+    min-width: 0;
+  }
+
+  .as-progress__top {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 10px;
+  }
+
+  .as-progress__label {
+    display: none;
+  }
+
+  .as-progress__track {
+    min-width: 0;
+    height: 4px;
+  }
+
+  .as-pagination {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 12px;
+  }
+
+  .as-pagination p {
+    font-size: 11px;
+  }
 }
 
 @media (max-width: 380px) {
-  .as-header__actions {
-    flex-direction: column;
+  .as-table th,
+  .as-table td {
+    padding: 10px 6px;
+  }
+
+  .as-student__avatar {
+    width: 24px;
+    height: 24px;
+  }
+
+  .as-student__name {
+    font-size: 11px;
   }
 }

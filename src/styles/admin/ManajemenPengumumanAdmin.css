@@ -1,5 +1,8 @@
 .pm-content {
+  width: 100%;
+  min-width: 0;
   gap: 24px;
+  overflow-x: hidden;
 }
 
 .pm-header {
@@ -141,6 +144,11 @@
   align-items: start;
 }
 
+.pm-grid > *,
+.pm-stat {
+  min-width: 0;
+}
+
 .pm-card {
   padding: 24px;
   border-radius: 16px;
@@ -205,13 +213,16 @@
 }
 
 .pm-side {
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
 .pm-table-wrap {
+  max-width: 100%;
   overflow-x: auto;
+  overscroll-behavior-x: contain;
 }
 
 .pm-table {
@@ -413,6 +424,7 @@
 
 .pm-timeline__item {
   position: relative;
+  min-width: 0;
 }
 
 .pm-timeline__dot {
@@ -434,10 +446,12 @@
 }
 
 .pm-timeline__title {
+  min-width: 0;
   margin: 0 0 4px;
   color: var(--ad-navy-text);
   font-size: 14px;
   font-weight: 600;
+  overflow-wrap: anywhere;
 }
 
 .pm-timeline__target {
@@ -466,12 +480,14 @@
   .pm-stats { grid-template-columns: 1fr; gap: 12px; }
 
   .pm-header {
+    width: 100%;
     align-items: flex-start;
   }
 
   .pm-header .pm-btn {
     width: 100%;
     justify-content: center;
+    padding: 10px 16px;
   }
 
   .pm-stat,
@@ -483,8 +499,66 @@
     padding: 0;
   }
 
+  .pm-table-wrap {
+    overflow-x: hidden;
+  }
+
+  .pm-table {
+    min-width: 0;
+    table-layout: fixed;
+  }
+
   .pm-table th,
   .pm-table td {
-    padding: 12px;
+    padding: 12px 10px;
+    overflow-wrap: anywhere;
+  }
+
+  .pm-table th:nth-child(2),
+  .pm-table td:nth-child(2),
+  .pm-table th:nth-child(4),
+  .pm-table td:nth-child(4),
+  .pm-table th:nth-child(5),
+  .pm-table td:nth-child(5) {
+    display: none;
+  }
+
+  .pm-table th:first-child,
+  .pm-table td:first-child {
+    width: 72%;
+  }
+
+  .pm-table th:nth-child(3),
+  .pm-table td:nth-child(3) {
+    width: 28%;
+  }
+
+  .pm-card--table .pm-card__head {
+    padding: 16px;
+  }
+
+  .pm-card__head h2,
+  .pm-card > h2 {
+    font-size: 16px;
+  }
+
+  .pm-pagination {
+    flex-wrap: wrap;
+    padding: 12px 16px;
+  }
+
+  .pm-title {
+    font-size: 12px;
+  }
+
+  .pm-meta,
+  .pm-target,
+  .pm-status {
+    font-size: 10px;
+  }
+
+  .pm-timeline__title,
+  .pm-timeline__target {
+    font-size: 12px;
   }
 }
