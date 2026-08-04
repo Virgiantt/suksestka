@@ -1,4 +1,5 @@
 import { useState } from "react";
+import type { ReactNode } from "react";
 import AdminSidebar from "../../components/admin/AdminSidebar";
 import AdminTopbar from "../../components/admin/AdminTopbar";
 import AdminFooter from "../../components/admin/AdminFooter";
@@ -175,9 +176,242 @@ const scheduleTagBadgeClass: Record<ScheduleItem["tag"], string> = {
   DONE: "mo-schedule-item__tag mo-schedule-item__tag--done",
 };
 
+type LicenseKey = "PRO" | "BUSINESS" | "WEBINAR";
+
+type LicenseOption = {
+  key: LicenseKey;
+  label: string;
+  icon: ReactNode;
+};
+
+const licenseOptions: LicenseOption[] = [
+  {
+    key: "PRO",
+    label: "Zoom Pro",
+    icon: (
+      <svg width="22" height="36" viewBox="0 0 22 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M7.56667 15.6L8.73333 11.8L5.66667 9.33333H9.46667L10.6667 5.6L11.8667 9.33333H15.6667L12.5667 11.8L13.7333 15.6L10.6667 13.2333L7.56667 15.6V15.6M2.66667 28V17.7C1.82222 16.7667 1.16667 15.7 0.7 14.5C0.233333 13.3 0 12.0222 0 10.6667C0 7.68889 1.03333 5.16667 3.1 3.1C5.16667 1.03333 7.68889 0 10.6667 0C13.6444 0 16.1667 1.03333 18.2333 3.1C20.3 5.16667 21.3333 7.68889 21.3333 10.6667C21.3333 12.0222 21.1 13.3 20.6333 14.5C20.1667 15.7 19.5111 16.7667 18.6667 17.7V28L10.6667 25.3333L2.66667 28V28M10.6667 18.6667C12.8889 18.6667 14.7778 17.8889 16.3333 16.3333C17.8889 14.7778 18.6667 12.8889 18.6667 10.6667C18.6667 8.44444 17.8889 6.55556 16.3333 5C14.7778 3.44444 12.8889 2.66667 10.6667 2.66667C8.44444 2.66667 6.55556 3.44444 5 5C3.44444 6.55556 2.66667 8.44444 2.66667 10.6667C2.66667 12.8889 3.44444 14.7778 5 16.3333C6.55556 17.8889 8.44444 18.6667 10.6667 18.6667V18.6667Z"
+          fill="currentColor"
+        />
+      </svg>
+    ),
+  },
+  {
+    key: "BUSINESS",
+    label: "Zoom Business",
+    icon: (
+      <svg width="27" height="34" viewBox="0 0 27 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M2.66667 25.3333C1.93333 25.3333 1.30556 25.0722 0.783333 24.55C0.261111 24.0278 0 23.4 0 22.6667V17.3333H9.33333V20H17.3333V17.3333H26.6667V22.6667C26.6667 23.4 26.4056 24.0278 25.8833 24.55C25.3611 25.0722 24.7333 25.3333 24 25.3333H2.66667V25.3333M12 17.3333V14.6667H14.6667V17.3333H12V17.3333M0 14.6667V8C0 7.26667 0.261111 6.63889 0.783333 6.11667C1.30556 5.59444 1.93333 5.33333 2.66667 5.33333H8V2.66667C8 1.93333 8.26111 1.30556 8.78333 0.783333C9.30556 0.261111 9.93333 0 10.6667 0H16C16.7333 0 17.3611 0.261111 17.8833 0.783333C18.4056 1.30556 18.6667 1.93333 18.6667 2.66667V5.33333H24C24.7333 5.33333 25.3611 5.59444 25.8833 6.11667C26.4056 6.63889 26.6667 7.26667 26.6667 8V14.6667H17.3333V12H9.33333V14.6667H0V14.6667M10.6667 5.33333H16V2.66667V2.66667V2.66667H10.6667V2.66667V2.66667V5.33333V5.33333Z"
+          fill="currentColor"
+        />
+      </svg>
+    ),
+  },
+  {
+    key: "WEBINAR",
+    label: "Zoom Webinar",
+    icon: (
+      <svg width="27" height="30" viewBox="0 0 27 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M12 16H14.6667V10.4667L16.8 12.5667L18.7 10.6667L13.3333 5.33333L8 10.6667L9.9 12.5333L12 10.4333V16V16M2.66667 21.3333C1.93333 21.3333 1.30556 21.0722 0.783333 20.55C0.261111 20.0278 0 19.4 0 18.6667V2.66667C0 1.93333 0.261111 1.30556 0.783333 0.783333C1.30556 0.261111 1.93333 0 2.66667 0H24C24.7333 0 25.3611 0.261111 25.8833 0.783333C26.4056 1.30556 26.6667 1.93333 26.6667 2.66667V18.6667C26.6667 19.4 26.4056 20.0278 25.8833 20.55C25.3611 21.0722 24.7333 21.3333 24 21.3333H2.66667V21.3333Z"
+          fill="currentColor"
+        />
+      </svg>
+    ),
+  },
+];
+
+type AddZoomAccountModalProps = {
+  onClose: () => void;
+  onSubmit: () => void;
+};
+
+function AddZoomAccountModal({ onClose, onSubmit }: AddZoomAccountModalProps) {
+  const [license, setLicense] = useState<LicenseKey>("PRO");
+  const [activateNow, setActivateNow] = useState(true);
+  const [showSecret, setShowSecret] = useState(false);
+
+  const handleSubmit = () => {
+    onSubmit();
+    onClose();
+  };
+
+  return (
+    <div className="mo-modal-overlay" onClick={onClose}>
+      <div className="mo-modal" role="dialog" aria-modal="true" aria-labelledby="mo-modal-title" onClick={(event) => event.stopPropagation()}>
+        <div className="mo-modal__header">
+          <div className="mo-modal__header-left">
+            <span className="mo-modal__header-icon">
+              <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M2 16C1.45 16 0.979167 15.8042 0.5875 15.4125C0.195833 15.0208 0 14.55 0 14V2C0 1.45 0.195833 0.979167 0.5875 0.5875C0.979167 0.195833 1.45 0 2 0H14C14.55 0 15.0208 0.195833 15.4125 0.5875C15.8042 0.979167 16 1.45 16 2V6.5L20 2.5V13.5L16 9.5V14C16 14.55 15.8042 15.0208 15.4125 15.4125C15.0208 15.8042 14.55 16 14 16H2V16Z"
+                  fill="#004AC6"
+                />
+              </svg>
+            </span>
+            <div>
+              <h2 id="mo-modal-title">Hubungkan Akun Zoom Baru</h2>
+              <p>Tambahkan kredensial API Zoom untuk sinkronisasi jadwal otomatis.</p>
+            </div>
+          </div>
+          <button type="button" className="mo-modal__close" aria-label="Tutup" onClick={onClose}>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1.4 14L0 12.6L5.6 7L0 1.4L1.4 0L7 5.6L12.6 0L14 1.4L8.4 7L14 12.6L12.6 14L7 8.4L1.4 14V14" fill="#737686" />
+            </svg>
+          </button>
+        </div>
+
+        <div className="mo-modal__body">
+          <div className="mo-field-group">
+            <span className="mo-field-group__legend">Tipe Lisensi Zoom</span>
+            <div className="mo-license-options">
+              {licenseOptions.map((option) => (
+                <button
+                  type="button"
+                  key={option.key}
+                  className={`mo-license-option${license === option.key ? " mo-license-option--active" : ""}`}
+                  onClick={() => setLicense(option.key)}
+                >
+                  <span className="mo-license-option__icon">{option.icon}</span>
+                  {option.label}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="mo-form-grid">
+            <label className="mo-field">
+              <span className="mo-field__label">Email Account Zoom</span>
+              <span className="mo-field__input-wrap">
+                <span className="mo-field__icon">
+                  <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M1.5 12C1.0875 12 0.734375 11.8531 0.440625 11.5594C0.146875 11.2656 0 10.9125 0 10.5V1.5C0 1.0875 0.146875 0.734375 0.440625 0.440625C0.734375 0.146875 1.0875 0 1.5 0H13.5C13.9125 0 14.2656 0.146875 14.5594 0.440625C14.8531 0.734375 15 1.0875 15 1.5V10.5C15 10.9125 14.8531 11.2656 14.5594 11.5594C14.2656 11.8531 13.9125 12 13.5 12H1.5V12M7.5 6.75L1.5 3V10.5V10.5V10.5H13.5V10.5V10.5V3L7.5 6.75V6.75M7.5 5.25L13.5 1.5H1.5L7.5 5.25V5.25M1.5 3V1.5V1.5V3V10.5V10.5V10.5V10.5V10.5V10.5V3V3Z"
+                      fill="#737686"
+                    />
+                  </svg>
+                </span>
+                <input type="email" placeholder="admin@suksestka.com" />
+              </span>
+            </label>
+
+            <label className="mo-field">
+              <span className="mo-field__label">Nama Host / Identitas</span>
+              <span className="mo-field__input-wrap">
+                <span className="mo-field__icon">
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M6 6C5.175 6 4.46875 5.70625 3.88125 5.11875C3.29375 4.53125 3 3.825 3 3C3 2.175 3.29375 1.46875 3.88125 0.88125C4.46875 0.29375 5.175 0 6 0C6.825 0 7.53125 0.29375 8.11875 0.88125C8.70625 1.46875 9 2.175 9 3C9 3.825 8.70625 4.53125 8.11875 5.11875C7.53125 5.70625 6.825 6 6 6V6M0 12V9.9C0 9.475 0.109375 9.08437 0.328125 8.72812C0.546875 8.37187 0.8375 8.1 1.2 7.9125C1.975 7.525 2.7625 7.23438 3.5625 7.04063C4.3625 6.84688 5.175 6.75 6 6.75C6.825 6.75 7.6375 6.84688 8.4375 7.04063C9.2375 7.23438 10.025 7.525 10.8 7.9125C11.1625 8.1 11.4531 8.37187 11.6719 8.72812C11.8906 9.08437 12 9.475 12 9.9V12H0V12M1.5 10.5H10.5V9.9C10.5 9.7625 10.4656 9.6375 10.3969 9.525C10.3281 9.4125 10.2375 9.325 10.125 9.2625C9.45 8.925 8.76875 8.67188 8.08125 8.50313C7.39375 8.33438 6.7 8.25 6 8.25C5.3 8.25 4.60625 8.33438 3.91875 8.50313C3.23125 8.67188 2.55 8.925 1.875 9.2625C1.7625 9.325 1.67187 9.4125 1.60312 9.525C1.53437 9.6375 1.5 9.7625 1.5 9.9V10.5V10.5M6 4.5C6.4125 4.5 6.76562 4.35312 7.05937 4.05937C7.35312 3.76562 7.5 3.4125 7.5 3C7.5 2.5875 7.35312 2.23437 7.05937 1.94062C6.76562 1.64687 6.4125 1.5 6 1.5C5.5875 1.5 5.23438 1.64687 4.94063 1.94062C4.64688 2.23437 4.5 2.5875 4.5 3C4.5 3.4125 4.64688 3.76562 4.94063 4.05937C5.23438 4.35312 5.5875 4.5 6 4.5V4.5Z"
+                      fill="#737686"
+                    />
+                  </svg>
+                </span>
+                <input type="text" placeholder="TKA Master Class 1" />
+              </span>
+            </label>
+
+            <label className="mo-field mo-field--full">
+              <span className="mo-field__label">API Key / Client ID</span>
+              <span className="mo-field__input-wrap">
+                <span className="mo-field__icon">
+                  <svg width="18" height="9" viewBox="0 0 18 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M4.5 6C4.0875 6 3.73437 5.85312 3.44062 5.55937C3.14687 5.26562 3 4.9125 3 4.5C3 4.0875 3.14687 3.73437 3.44062 3.44062C3.73437 3.14687 4.0875 3 4.5 3C4.9125 3 5.26562 3.14687 5.55937 3.44062C5.85312 3.73437 6 4.0875 6 4.5C6 4.9125 5.85312 5.26562 5.55937 5.55937C5.26562 5.85312 4.9125 6 4.5 6V6M4.5 9C3.25 9 2.1875 8.5625 1.3125 7.6875C0.4375 6.8125 0 5.75 0 4.5C0 3.25 0.4375 2.1875 1.3125 1.3125C2.1875 0.4375 3.25 0 4.5 0C5.3375 0 6.09687 0.20625 6.77812 0.61875C7.45937 1.03125 8 1.575 8.4 2.25H15L17.25 4.5L13.875 7.875L12.375 6.75L10.875 7.875L9.28125 6.75H8.4C8 7.425 7.45937 7.96875 6.77812 8.38125C6.09687 8.79375 5.3375 9 4.5 9V9M4.5 7.5C5.2 7.5 5.81563 7.2875 6.34688 6.8625C6.87813 6.4375 7.23125 5.9 7.40625 5.25H9.75L10.8375 6.01875L12.375 4.875L13.7063 5.90625L15.1125 4.5L14.3625 3.75H7.40625C7.23125 3.1 6.87813 2.5625 6.34688 2.1375C5.81563 1.7125 5.2 1.5 4.5 1.5C3.675 1.5 2.96875 1.79375 2.38125 2.38125C1.79375 2.96875 1.5 3.675 1.5 4.5C1.5 5.325 1.79375 6.03125 2.38125 6.61875C2.96875 7.20625 3.675 7.5 4.5 7.5V7.5Z"
+                      fill="#737686"
+                    />
+                  </svg>
+                </span>
+                <input type="text" className="mo-field__mono" placeholder="Misal: xyz123ABC_client_id" />
+              </span>
+            </label>
+
+            <label className="mo-field mo-field--full">
+              <span className="mo-field__label">Client Secret</span>
+              <span className="mo-field__input-wrap">
+                <span className="mo-field__icon">
+                  <svg width="17" height="9" viewBox="0 0 17 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M0.75 9V7.5H15.75V9H0.75V9M1.6125 4.4625L0.6375 3.9L1.275 2.775H0V1.65H1.275L0.6375 0.5625L1.6125 0L2.25 1.0875L2.8875 0L3.8625 0.5625L3.225 1.65H4.5V2.775H3.225L3.8625 3.9L2.8875 4.4625L2.25 3.3375L1.6125 4.4625V4.4625M7.6125 4.4625L6.6375 3.9L7.275 2.775H6V1.65H7.275L6.6375 0.5625L7.6125 0L8.25 1.0875L8.8875 0L9.8625 0.5625L9.225 1.65H10.5V2.775H9.225L9.8625 3.9L8.8875 4.4625L8.25 3.3375L7.6125 4.4625V4.4625M13.6125 4.4625L12.6375 3.9L13.275 2.775H12V1.65H13.275L12.6375 0.5625L13.6125 0L14.25 1.0875L14.8875 0L15.8625 0.5625L15.225 1.65H16.5V2.775H15.225L15.8625 3.9L14.8875 4.4625L14.25 3.3375L13.6125 4.4625V4.4625Z"
+                      fill="#737686"
+                    />
+                  </svg>
+                </span>
+                <input type={showSecret ? "text" : "password"} className="mo-field__mono" placeholder="Masukkan Client Secret" />
+                <button
+                  type="button"
+                  className="mo-field__toggle-visibility"
+                  aria-label={showSecret ? "Sembunyikan Client Secret" : "Tampilkan Client Secret"}
+                  onClick={() => setShowSecret((prev) => !prev)}
+                >
+                  <svg width="22" height="15" viewBox="0 0 22 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M11 12C12.25 12 13.3125 11.5625 14.1875 10.6875C15.0625 9.8125 15.5 8.75 15.5 7.5C15.5 6.25 15.0625 5.1875 14.1875 4.3125C13.3125 3.4375 12.25 3 11 3C9.75 3 8.6875 3.4375 7.8125 4.3125C6.9375 5.1875 6.5 6.25 6.5 7.5C6.5 8.75 6.9375 9.8125 7.8125 10.6875C8.6875 11.5625 9.75 12 11 12V12M11 10.2C10.25 10.2 9.6125 9.9375 9.0875 9.4125C8.5625 8.8875 8.3 8.25 8.3 7.5C8.3 6.75 8.5625 6.1125 9.0875 5.5875C9.6125 5.0625 10.25 4.8 11 4.8C11.75 4.8 12.3875 5.0625 12.9125 5.5875C13.4375 6.1125 13.7 6.75 13.7 7.5C13.7 8.25 13.4375 8.8875 12.9125 9.4125C12.3875 9.9375 11.75 10.2 11 10.2V10.2M11 15C8.56667 15 6.35 14.3208 4.35 12.9625C2.35 11.6042 0.9 9.78333 0 7.5C0.9 5.21667 2.35 3.39583 4.35 2.0375C6.35 0.679167 8.56667 0 11 0C13.4333 0 15.65 0.679167 17.65 2.0375C19.65 3.39583 21.1 5.21667 22 7.5C21.1 9.78333 19.65 11.6042 17.65 12.9625C15.65 14.3208 13.4333 15 11 15V15Z"
+                      fill="#737686"
+                    />
+                  </svg>
+                </button>
+              </span>
+            </label>
+          </div>
+
+          <div className="mo-modal__activation">
+            <div>
+              <h3>Aktifkan Akun Segera</h3>
+              <p>Akun ini akan langsung tersedia untuk pembuatan jadwal kelas.</p>
+            </div>
+            <button
+              type="button"
+              className={`mo-toggle${activateNow ? " mo-toggle--on" : ""}`}
+              role="switch"
+              aria-checked={activateNow}
+              aria-label="Aktifkan Akun Segera"
+              onClick={() => setActivateNow((prev) => !prev)}
+            >
+              <span className="mo-toggle__thumb">
+                {activateNow ? (
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M18.3104 7.18918C18.896 7.77493 18.896 8.72443 18.3104 9.31018L10.8104 16.8102C10.2246 17.3958 9.27513 17.3958 8.68938 16.8102L5.68938 13.8102C5.12092 13.2216 5.12905 12.2861 5.70765 11.7075C6.28625 11.1289 7.22181 11.1207 7.81038 11.6892L9.74988 13.6287L16.1894 7.18918C16.7751 6.60361 17.7246 6.60361 18.3104 7.18918V7.18918Z"
+                      fill="#2563EB"
+                    />
+                  </svg>
+                ) : null}
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <div className="mo-modal__footer">
+          <button type="button" className="mo-modal__btn-secondary" onClick={onClose}>
+            Batal
+          </button>
+          <button type="button" className="mo-modal__btn-primary" onClick={handleSubmit}>
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M0 12V10.5H2.0625L1.7625 10.2375C1.1125 9.6625 0.65625 9.00625 0.39375 8.26875C0.13125 7.53125 0 6.7875 0 6.0375C0 4.65 0.415625 3.41562 1.24688 2.33437C2.07813 1.25312 3.1625 0.5375 4.5 0.1875V1.7625C3.6 2.0875 2.875 2.64062 2.325 3.42188C1.775 4.20312 1.5 5.075 1.5 6.0375C1.5 6.6 1.60625 7.14687 1.81875 7.67812C2.03125 8.20937 2.3625 8.7 2.8125 9.15L3 9.3375V7.5H4.5V12H0V12M7.5 11.8125V10.2375C8.4 9.9125 9.125 9.35938 9.675 8.57812C10.225 7.79688 10.5 6.925 10.5 5.9625C10.5 5.4 10.3937 4.85313 10.1812 4.32188C9.96875 3.79063 9.6375 3.3 9.1875 2.85L9 2.6625V4.5H7.5V0H12V1.5H9.9375L10.2375 1.7625C10.85 2.375 11.2969 3.04063 11.5781 3.75938C11.8594 4.47813 12 5.2125 12 5.9625C12 7.35 11.5844 8.58437 10.7531 9.66562C9.92188 10.7469 8.8375 11.4625 7.5 11.8125V11.8125"
+                fill="white"
+              />
+            </svg>
+            Hubungkan & Sinkronisasi
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function MeetingOnlineAdmin() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [accountList, setAccountList] = useState(accounts);
+  const [isAddModalOpen, setAddModalOpen] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+
+  const handleAddAccountSubmit = () => {
+    setShowSuccess(true);
+    setTimeout(() => setShowSuccess(false), 3000);
+  };
 
   const toggleAccount = (id: number) => {
     setAccountList((prev) => prev.map((account) => (account.id === id ? { ...account, active: !account.active } : account)));
@@ -206,7 +440,7 @@ function MeetingOnlineAdmin() {
                 </svg>
                 Sinkronisasi Akun
               </button>
-              <button type="button" className="mo-btn mo-btn--primary">
+              <button type="button" className="mo-btn mo-btn--primary" onClick={() => setAddModalOpen(true)}>
                 <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M4.5 6H0V4.5H4.5V0H6V4.5H10.5V6H6V10.5H4.5V6V6" fill="white" />
                 </svg>
@@ -371,6 +605,25 @@ function MeetingOnlineAdmin() {
 
         <AdminFooter />
       </div>
+
+      {isAddModalOpen ? <AddZoomAccountModal onClose={() => setAddModalOpen(false)} onSubmit={handleAddAccountSubmit} /> : null}
+
+      {showSuccess && (
+        <div className="mo-toast mo-toast--success">
+          <div className="mo-toast__content">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M10 20C4.5 20 0 15.5 0 10C0 4.5 4.5 0 10 0C15.5 0 20 4.5 20 10C20 15.5 15.5 20 10 20ZM8 14.5L15 7.5L13.6 6.1L8 11.7L6.4 10.1L5 11.5L8 14.5Z"
+                fill="currentColor"
+              />
+            </svg>
+            <div>
+              <p className="mo-toast__title">Akun Zoom berhasil ditambahkan</p>
+              <p className="mo-toast__message">Akun Zoom telah terhubung dan siap digunakan untuk membuat jadwal kelas.</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
