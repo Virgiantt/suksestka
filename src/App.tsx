@@ -55,6 +55,7 @@ import ManajemenPengumumanAdmin from "./pages/admin/ManajemenPengumumanAdmin";
 import BuatPengumumanAdmin from "./pages/admin/BuatPengumumanAdmin";
 import PengaturanSistemAdmin from "./pages/admin/PengaturanSistemAdmin";
 import LaporanPlatformAdmin from "./pages/admin/LaporanPlatformAdmin";
+import MeetingOnlineAdmin from "./pages/admin/MeetingOnlineAdmin";
 
 const heroImageSrc =
   "https://api.builder.io/api/v1/image/assets/TEMP/ae1af6ba1f37caad98c54a2ae7fbc88418225ce8?width=1184";
@@ -1332,6 +1333,7 @@ function App() {
       <Route path="/admin/pengumuman/buat" element={<BuatPengumumanAdmin />} />
       <Route path="/admin/pengaturan" element={<PengaturanSistemAdmin />} />
       <Route path="/admin/laporan" element={<LaporanPlatformAdmin />} />
+      <Route path="/admin/meeting-online" element={<MeetingOnlineAdmin />} />
     </Routes>
   );
 }

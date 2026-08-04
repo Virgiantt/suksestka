@@ -36,6 +36,15 @@ const navItems: NavItem[] = [
     ),
   },
   {
+    label: "Meeting Online",
+    to: "/admin/meeting-online",
+    icon: (
+      <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 3C0 1.34315 1.34315 0 3 0H11C12.6569 0 14 1.34315 14 3V13C14 14.6569 12.6569 16 11 16H3C1.34315 16 0 14.6569 0 13V3ZM16 5.23607L20 3V13L16 10.7639V5.23607Z" fill="currentColor" />
+      </svg>
+    ),
+  },
+  {
     label: "Siswa",
     to: "/admin/siswa",
     icon: (
