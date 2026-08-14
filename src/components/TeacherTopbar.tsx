@@ -9,14 +9,14 @@ type TeacherTopbarProps = {
 
 function TeacherTopbar({ onMenuClick }: TeacherTopbarProps) {
   return (
-    <header className="dashboard-topbar">
+    <header className="dashboard-topbar dashboard-topbar--teacher">
       <button type="button" className="dashboard-topbar__menu" aria-label="Buka menu" onClick={onMenuClick}>
         <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M0 16V14H20V16H0ZM0 9V7H20V9H0ZM0 2V0H20V2H0Z" fill="#1B1B23" />
         </svg>
       </button>
 
-      <div className="dashboard-topbar__search">
+      <div className="dashboard-topbar__search dashboard-topbar__search--teacher">
         <svg
           className="dashboard-topbar__search-icon"
           width="16"
@@ -41,7 +41,7 @@ function TeacherTopbar({ onMenuClick }: TeacherTopbarProps) {
               fill="#434655"
             />
           </svg>
-          <span className="dashboard-icon-btn__dot" />
+          <span className="dashboard-icon-btn__dot dashboard-icon-btn__dot--teacher" />
         </button>
         <div className="teacher-topbar__profile">
           <img src={teacherAvatarSrc} alt="Bu Rina" className="teacher-topbar__avatar" />

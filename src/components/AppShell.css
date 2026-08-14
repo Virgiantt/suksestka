@@ -384,6 +384,37 @@
   animation: dashboard-pulse 2s ease-in-out infinite;
 }
 
+.dashboard-topbar--teacher {
+  height: 62px;
+  padding: 0 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.dashboard-topbar__search--teacher {
+  max-width: 288px;
+}
+
+.dashboard-topbar__search--teacher input {
+  padding: 11px 16px 12px 48px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.05) inset;
+}
+
+.dashboard-topbar__search--teacher .dashboard-topbar__search-icon {
+  left: 16px;
+}
+
+.dashboard-icon-btn__dot--teacher {
+  width: 10px;
+  height: 10px;
+  background: #f43f5e;
+  border: 2px solid #f7f9fb;
+}
+
 .teacher-topbar__profile {
   display: flex;
   align-items: center;
